@@ -8,11 +8,10 @@ namespace IOData
     {
         public ComplexityData ComplexityData { get; set; }
         public DevelopmentTimeData DevelopmentTimeData { get; set; }
-        public int BasicContractorSalary { get; set; }
-        public int AdditionalSalary { get; set; }
-        public int TotalPcMaintenanceAndOperationCosts { get; set; }
-        public int SoftwareProductCost { get; set; }
-        public int FinishedSoftwareProductCost { get; set; }
+        public SalaryData SalaryData { get; set; }
+        public EquipmentData EquipmentData { get; set; }
+        public PureCostData PureCostData { get; set; }
+        public FinishedSoftwareProductCostData FinishedSoftwareProductCostData { get; set; }
 
         public Dictionary<string, string> ToViewableDictionary()
         {
@@ -23,11 +22,11 @@ namespace IOData
                 { "Продуктивність (вих.ком./люд.-міс.)", ComplexityData.Productivity.ToString() },
                 { "Кількість виконавців (люд.)", DevelopmentTimeData.SpecialistsCount.ToString() },
                 { "Час, потрібний на створення програмного продукту (міс.)", DevelopmentTimeData.TimeToCreateSoftwareProduct.ToString() },
-                { "Основна заробітна платні виконавця (грн.)", BasicContractorSalary.ToString() },
-                { "Додаткова заробітна платня (грн.)", AdditionalSalary.ToString() },
-                { "Загальні витрати на утримання і експлуатацію ПЕОМ при виконанні проекту (грн.)", TotalPcMaintenanceAndOperationCosts.ToString() },
-                { "Собівартість програмного продукту (грн.)", SoftwareProductCost.ToString() },
-                { "Вартість готового програмного продукту (грн.)", FinishedSoftwareProductCost.ToString() }
+                { "Основна заробітна платні виконавця (грн.)", SalaryData.BasicContractorSalary.ToString() },
+                { "Додаткова заробітна платня (грн.)", SalaryData.AdditionalSalary.ToString() },
+                { "Загальні витрати на утримання і експлуатацію ПЕОМ при виконанні проекту (грн.)", EquipmentData.TotalPcMaintenanceAndOperationCosts.ToString() },
+                { "Собівартість програмного продукту (грн.)", PureCostData.SoftwareProductCost.ToString() },
+                { "Вартість готового програмного продукту (грн.)", FinishedSoftwareProductCostData.FinishedSoftwareProductCost.ToString() }
             };
 
             return result;

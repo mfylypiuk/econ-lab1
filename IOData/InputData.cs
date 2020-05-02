@@ -7,32 +7,32 @@ namespace IOData
 {
     public class InputData
     {
-        public int TaskDescriptionPrepareTime { get; set; }
+        public double TaskDescriptionPrepareTime { get; set; }
         public string TypeOfTask { get; set; }
         public string SoftwareNoveltyLevel { get; set; }
-        public int SoftwareComplexityLevel { get; set; }
+        public double SoftwareComplexityLevel { get; set; }
         public string ProgrammingLanguageLevel { get; set; }
         public double ProgrammerExperience { get; set; }
-        public int DocumentationTime { get; set; }
+        public double DocumentationTime { get; set; }
         public double TariffCoefficient { get; set; }
         public string ProjectDevelopmentMonth { get; set; }
         public double AverageWorkingHours { get; set; }
-        public int AveragePremiumPercentage { get; set; }
-        public int AdditionalWagePercentage { get; set; }
+        public double AveragePremiumPercentage { get; set; }
+        public double AdditionalWagePercentage { get; set; }
         public double KilowattCost { get; set; }
         public double PcTotalPower { get; set; }
         public double LightingTotalPower { get; set; }
-        public int EngineerFirstCategoryMonthlySalary { get; set; }
-        public int SystemProgrammerMonthlySalary { get; set; }
-        public int OperatorMonthlySalary { get; set; }
-        public int EngineerServiceRate { get; set; }
-        public int SystemProgrammerServiceRate { get; set; }
-        public int OperatorServiceRate { get; set; }
+        public double EngineerFirstCategoryMonthlySalary { get; set; }
+        public double SystemProgrammerMonthlySalary { get; set; }
+        public double OperatorMonthlySalary { get; set; }
+        public double EngineerServiceRate { get; set; }
+        public double SystemProgrammerServiceRate { get; set; }
+        public double OperatorServiceRate { get; set; }
         public double EngineerTariffCoefficient { get; set; }
         public double SystemProgrammerTariffCoefficient { get; set; }
         public double OperatorTariffCoefficient { get; set; }
-        public int PcComplexCarryingAmount { get; set; }
-        public int TermOfPcUse { get; set; }
+        public double PcComplexCarryingAmount { get; set; }
+        public double TermOfPcUse { get; set; }
 
         public Dictionary<string, string> ToViewableDictionary()
         {

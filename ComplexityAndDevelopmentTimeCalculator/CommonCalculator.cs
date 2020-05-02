@@ -7,17 +7,17 @@ namespace ComplexityAndDevelopmentTimeCalculator
     {
         private string typeOfTask;
         private string softwareNoveltyLevel;
-        private int softwareComplexityLevel;
+        private double softwareComplexityLevel;
         private string programmingLanguageLevel;
-        private int taskDescriptionPrepareTime;
+        private double taskDescriptionPrepareTime;
         private double programmerExperience;
-        private int documentationTime;
+        private double documentationTime;
 
         public ComplexityData ComplexityData { get; set; }
         public DevelopmentTimeData DevelopmentTimeData { get; set; }
 
-        public CommonCalculator(string typeOfTask, string softwareNoveltyLevel, int softwareComplexityLevel, string programmingLanguageLevel,
-            int taskDescriptionPrepareTime, double programmerExperience, int documentationTime)
+        public CommonCalculator(string typeOfTask, string softwareNoveltyLevel, double softwareComplexityLevel, string programmingLanguageLevel,
+            double taskDescriptionPrepareTime, double programmerExperience, double documentationTime)
         {
             this.typeOfTask = typeOfTask;
             this.softwareNoveltyLevel = softwareNoveltyLevel;

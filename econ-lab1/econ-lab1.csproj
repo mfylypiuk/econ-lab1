@@ -13,9 +13,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ComplexityAndDevelopmentTimeCalculator\ComplexityAndDevelopmentTimeCalculator.csproj" />
+    <ProjectReference Include="..\EquipmentCalculator\EquipmentCalculator.csproj" />
+    <ProjectReference Include="..\FinishedSoftwareProductCostCalculator\FinishedSoftwareProductCostCalculator.csproj" />
     <ProjectReference Include="..\IOData\IOData.csproj">
       <Private>true</Private>
     </ProjectReference>
+    <ProjectReference Include="..\PureCostCalculator\PureCostCalculator.csproj" />
+    <ProjectReference Include="..\SalaryCalculator\SalaryCalculator.csproj" />
   </ItemGroup>
 
 </Project>

@@ -61,8 +61,6 @@ namespace econ_lab1.ViewModel
             }
         }
 
-        
-
         public MainWindowViewModel()
         {
             fileService = new IOFileService();
@@ -108,16 +106,39 @@ namespace econ_lab1.ViewModel
 
         private void ExecuteCalculateCommand(object obj)
         {
-            ComplexityAndDevelopmentTimeCalculator.CommonCalculator complexityAndDevelopmentTimeCalculator =
+            var complexityAndDevelopmentTimeCalculator =
                 new ComplexityAndDevelopmentTimeCalculator.CommonCalculator(inputData.TypeOfTask, inputData.SoftwareNoveltyLevel,
                     inputData.SoftwareComplexityLevel, inputData.ProgrammingLanguageLevel, inputData.TaskDescriptionPrepareTime,
                     inputData.ProgrammerExperience, inputData.DocumentationTime);
 
             complexityAndDevelopmentTimeCalculator.Calculate();
 
+            var salaryCalculator =
+                new SalaryCalculator.SalaryCalculator(complexityAndDevelopmentTimeCalculator.DevelopmentTimeData, inputData.TariffCoefficient,
+                    inputData.AverageWorkingHours, inputData.AveragePremiumPercentage, inputData.AdditionalWagePercentage);
+            SalaryData salaryData = salaryCalculator.Calculate();
+
+            var equipmentCalculator =
+                new EquipmentCalculator.EquipmentCalculator(complexityAndDevelopmentTimeCalculator.DevelopmentTimeData, inputData.AverageWorkingHours,
+                inputData.KilowattCost, inputData.PcTotalPower, inputData.LightingTotalPower, inputData.PcComplexCarryingAmount, inputData.TermOfPcUse,
+                inputData.EngineerFirstCategoryMonthlySalary, inputData.TariffCoefficient, inputData.AveragePremiumPercentage, inputData.EngineerServiceRate);
+            EquipmentData equipmentData = equipmentCalculator.Calculate();
+
+            var pureCostCalculator =
+                new PureCostCalculator.PureCostCalculator(salaryData, equipmentData);
+            PureCostData pureCostData = pureCostCalculator.Calculate();
+
+            var finishedSoftwareProductCostCalculator = 
+                new FinishedSoftwareProductCostCalculator.FinishedSoftwareProductCostCalculator(pureCostData);
+            FinishedSoftwareProductCostData finishedSoftwareProductCostData = finishedSoftwareProductCostCalculator.Calculate();
+
             outputData = new OutputData();
             outputData.ComplexityData = complexityAndDevelopmentTimeCalculator.ComplexityData;
             outputData.DevelopmentTimeData = complexityAndDevelopmentTimeCalculator.DevelopmentTimeData;
+            outputData.SalaryData = salaryData;
+            outputData.EquipmentData = equipmentData;
+            outputData.PureCostData = pureCostData;
+            outputData.FinishedSoftwareProductCostData = finishedSoftwareProductCostData;
 
             OutputDataViewable = outputData.ToViewableDictionary();
             OnPropertyChanged(nameof(OutputDataViewable));

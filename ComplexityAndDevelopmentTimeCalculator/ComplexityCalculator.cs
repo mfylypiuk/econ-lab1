@@ -9,13 +9,13 @@ namespace ComplexityAndDevelopmentTimeCalculator
     {
         private string typeOfTask;
         private string softwareNoveltyLevel;
-        private int softwareComplexityLevel;
+        private double softwareComplexityLevel;
         private string programmingLanguageLevel;
 
-        private int q; // коефіцієнт, який враховує умовне число команд в залежності від типу задачі, яку вирішує програмний продукт
+        private double q; // коефіцієнт, який враховує умовне число команд в залежності від типу задачі, яку вирішує програмний продукт
         private double C; // коефіцієнт, який враховує новизну та складність програми, на перетині показників складності та новизни
 
-        public ComplexityCalculator(string typeOfTask, string softwareNoveltyLevel, int softwareComplexityLevel, string programmingLanguageLevel)
+        public ComplexityCalculator(string typeOfTask, string softwareNoveltyLevel, double softwareComplexityLevel, string programmingLanguageLevel)
         {
             this.typeOfTask = typeOfTask;
             this.softwareNoveltyLevel = softwareNoveltyLevel;
@@ -30,7 +30,7 @@ namespace ComplexityAndDevelopmentTimeCalculator
             {
                 case "ПЗ ведення БД і лінійних файлів":
                     {
-                        q = 1000;
+                        q = 1000.0;
                         break;
                     }
                 default:
@@ -58,7 +58,7 @@ namespace ComplexityAndDevelopmentTimeCalculator
             // умовна кількість команд в програмі 
             double Q = q * C;
             // число тисяч команд програмного коду
-            double Noae = Q / 1000;
+            double Noae = Q / 1000.0;
             // трудомісткість розробки програмного продукту 
             double t = 3.6 * Math.Pow(Noae, 1.2);
 

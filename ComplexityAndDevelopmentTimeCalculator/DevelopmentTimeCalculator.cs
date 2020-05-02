@@ -8,12 +8,12 @@ namespace ComplexityAndDevelopmentTimeCalculator
     public class DevelopmentTimeCalculator
     {
         private ComplexityData complexityData;
-        private int taskDescriptionPrepareTime;
+        private double taskDescriptionPrepareTime;
         private double programmerExperience;
-        private int documentationTime;
+        private double documentationTime;
         private double K;
 
-        public DevelopmentTimeCalculator(ComplexityData complexityData, int taskDescriptionPrepareTime, double programmerExperience, int documentationTime)
+        public DevelopmentTimeCalculator(ComplexityData complexityData, double taskDescriptionPrepareTime, double programmerExperience, double documentationTime)
         {
             this.complexityData = complexityData;
             this.taskDescriptionPrepareTime = taskDescriptionPrepareTime;
@@ -48,13 +48,13 @@ namespace ComplexityAndDevelopmentTimeCalculator
             // коефіцієнт урахування змін завдання
             double B = 1.45;
             // час на опис завдання 
-            double To = (complexityData.SourceCodeCommandsCount * B) / (50 * K);
+            double To = (complexityData.SourceCodeCommandsCount * B) / (50.0 * K);
             // час на розробку алгоритму та блок-схеми 
-            double Ta = complexityData.SourceCodeCommandsCount / (50 * K);
+            double Ta = complexityData.SourceCodeCommandsCount / (50.0 * K);
             // час написання програми мовою програмування 
-            double Th = (complexityData.SourceCodeCommandsCount * 1.5) / (50 * K);
+            double Th = (complexityData.SourceCodeCommandsCount * 1.5) / (50.0 * K);
             // час налагодження та тестування програми 
-            double Tht = (complexityData.SourceCodeCommandsCount * 4.2) / (50 * K);
+            double Tht = (complexityData.SourceCodeCommandsCount * 4.2) / (50.0 * K);
 
             // Час, необхідний для виконання кожного етапу створення ПП
             double T = taskDescriptionPrepareTime + To + Ta + Th + Tht + documentationTime;
